@@ -23,6 +23,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .Button{
     -fx-font-size: 15;
     -fx-pref-width: 200;
+    -fx-background-color: darkblue;
+    -fx-text-fill: white;
     
  
 }
