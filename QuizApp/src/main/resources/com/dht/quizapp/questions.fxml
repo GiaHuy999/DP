@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="439.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizapp.QuestionsController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="QUẢN LÝ CÂU HỎI" />
@@ -36,6 +35,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" styleClass="Button" text="Thêm lựa chọn" />
+      <Button fx:id="cbLevels" mnemonicParsing="false" onAction="#addChoice" styleClass="Button" text="Thêm lựa chọn" />
    </children>
 </VBox>

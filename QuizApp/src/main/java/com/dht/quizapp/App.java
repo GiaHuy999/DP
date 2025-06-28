@@ -1,6 +1,7 @@
 package com.dht.quizapp;
 
 import com.dht.utils.JdbcConnector;
+import com.dht.utils.MyStage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.setTitle("Quiz App");
