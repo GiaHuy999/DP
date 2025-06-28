@@ -1,4 +1,4 @@
-package com.mycompany.huy.quiz;
+package com.dht.quizapp;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

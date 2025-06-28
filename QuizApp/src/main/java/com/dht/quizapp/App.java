@@ -1,5 +1,6 @@
-package com.mycompany.huy.quiz;
+package com.dht.quizapp;
 
+import com.dht.utils.JdbcConnector;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,10 +18,20 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
+        stage.setTitle("Quiz App");
         stage.show();
     }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        
+        JdbcConnector.getInstance().close();
+    }
+    
+    
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -34,5 +45,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
