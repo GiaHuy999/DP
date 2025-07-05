@@ -10,7 +10,7 @@ import com.dht.quizapp.App;
  *
  * @author admin
  */
-public class DefaultThemeFactory implements   ThemeFactory{
+public class DefaultThemeFactory implements ThemeFactory{
 
     @Override
     public String getStyleSheet() {

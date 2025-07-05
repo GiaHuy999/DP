@@ -4,6 +4,7 @@
  */
 package com.dht.services;
 
+import com.dht.pojo.Category;
 import com.dht.pojo.Level;
 import com.dht.utils.JdbcConnector;
 import java.sql.Connection;
@@ -29,8 +30,8 @@ public class LevelServices {
             String name = rs.getString("name");
             String note = rs.getString("note");
 
-            Level v = new Level(id, name,note);
-            levels.add(v);
+            Level c = new Level(id, name, note);
+            levels.add(c);
         }
 
         return levels;

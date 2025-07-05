@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="263.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizapp.PrimaryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="263.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizapp.PrimaryController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="QUIZ APP" />
       <Button mnemonicParsing="false" onAction="#handleQuestionManagement" styleClass="Button" text="Quản lý câu hỏi" />
@@ -13,6 +13,6 @@
       <Button layoutX="166.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleExam" styleClass="Button" text="Thi" />
       <Button layoutX="166.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleRegister" styleClass="Button" text="Đăng ký" />
       <Button layoutX="166.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleLogin" styleClass="Button" text="Đăng nhập" />
-      <ComboBox fx:id="cbThmes" onAction="#changeTheme" prefWidth="150.0" styleClass="Button" />
+      <ComboBox fx:id="cbThemes" onAction="#changeTheme" prefWidth="150.0" styleClass="Button" />
    </children>
 </VBox>

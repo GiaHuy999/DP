@@ -24,6 +24,8 @@ public class Level {
         return this.name; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     
+    
+
     /**
      * @return the id
      */
@@ -65,5 +67,4 @@ public class Level {
     public void setNote(String note) {
         this.note = note;
     }
-    
 }

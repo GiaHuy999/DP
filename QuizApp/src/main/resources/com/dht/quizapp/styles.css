@@ -30,6 +30,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .Input {
-    -fx-pref-width: 200;
-    -fx-padding: 5;
+    -fx-pref-width: 300;
+    -fx-padding: 8;
 }

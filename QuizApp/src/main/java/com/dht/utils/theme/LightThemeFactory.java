@@ -5,18 +5,16 @@
 package com.dht.utils.theme;
 
 import com.dht.quizapp.App;
-import javafx.scene.Scene;
 
 /**
  *
  * @author admin
  */
-public class LightThemeFactory implements ThemeFactory{
+public class LightThemeFactory implements ThemeFactory {
 
     @Override
     public String getStyleSheet() {
-        return App.class.getResource("light.css").toExternalForm();    
+        return App.class.getResource("light.css").toExternalForm();
     }
-
-
+    
 }

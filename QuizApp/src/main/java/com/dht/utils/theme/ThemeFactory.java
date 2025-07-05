@@ -4,9 +4,6 @@
  */
 package com.dht.utils.theme;
 
-import javafx.css.StyleableStringProperty;
-import javafx.css.Stylesheet;
-
 /**
  *
  * @author admin

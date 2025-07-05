@@ -7,14 +7,12 @@ package com.dht.utils.theme;
 import com.dht.quizapp.App;
 import javafx.scene.Scene;
 
-
-
 /**
  *
  * @author admin
  */
 public class ThemeManager {
-     private static ThemeFactory themeFactory = new DarkThemeFactory();
+    private static ThemeFactory themeFactory = new DarkThemeFactory();
 
     /**
      * @param aThemeFactory the themeFactory to set
@@ -22,10 +20,9 @@ public class ThemeManager {
     public static void setThemeFactory(ThemeFactory aThemeFactory) {
         themeFactory = aThemeFactory;
     }
-   
-   public static void applyTheme(Scene scene){
-       scene.getRoot().getStylesheets().clear();
-       scene.getRoot().getStylesheets().add(themeFactory.getStyleSheet());
-
-   }
+    
+    public static void applyTheme(Scene scene) {
+        scene.getRoot().getStylesheets().clear();
+        scene.getRoot().getStylesheets().add(themeFactory.getStyleSheet());
+    }
 }
