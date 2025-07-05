@@ -21,19 +21,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -135,7 +141,39 @@ public class QuestionsController implements Initializable {
         colContent.setCellValueFactory(new PropertyValueFactory("content"));
         colContent.setPrefWidth(250);
         
-        this.tbQuestions.getColumns().addAll(colId,colContent);
+        TableColumn colAction = new TableColumn();
+        colAction.setCellFactory(e->{
+            TableCell cell = new TableCell();
+            
+            Button btn = new Button("Xóa");
+            btn.setOnAction(event -> {
+            
+                Optional<ButtonType> t = MyAlert.getInstance().showMsg("Are u sure??", Alert.AlertType.CONFIRMATION);
+                if(t.isPresent() && t.get().equals(ButtonType.OK)){
+                    Question q =(Question)cell.getTableRow().getItem();
+                    try {
+                        if(questionServices.deleteQuestion(q.getId())==true){
+                            
+                            MyAlert.getInstance().showMsg("xoa thanh cong");
+                            this.tbQuestions.getItems().remove(q);
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    }
+                    
+                    
+                   
+                }
+                
+            });
+            
+            cell.setGraphic(btn);
+            
+            return cell;
+            
+        });
+
+        this.tbQuestions.getColumns().addAll(colId,colContent,colAction);
         
     }
 }

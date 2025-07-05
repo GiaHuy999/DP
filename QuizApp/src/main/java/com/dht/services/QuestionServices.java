@@ -5,6 +5,7 @@
 package com.dht.services;
 
 import com.dht.pojo.Category;
+import com.dht.pojo.Choice;
 import com.dht.pojo.Question;
 import com.dht.utils.JdbcConnector;
 import java.sql.Connection;
@@ -86,5 +87,56 @@ public class QuestionServices {
         }
 
         return questions;
+    }
+    
+    public List<Question> getQuestions(int num) throws SQLException{
+        Connection conn = JdbcConnector.getInstance().connect();
+        PreparedStatement stm = conn.prepareCall("SELECT * FROM question ORDER BY rand() LIMIT ?");
+        stm.setInt(1, num);
+        
+        ResultSet rs = stm.executeQuery();
+
+        List<Question> questions = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String content = rs.getString("content");
+            boolean correct = rs.getBoolean("is_correct");
+            
+
+            Question q = new Question.Builder(id, content).build();
+            questions.add(q);
+        }
+
+        return questions;
+    }
+    
+    public List<Choice> getChoicesByQuestionId(int questionId) throws SQLException{
+        Connection conn = JdbcConnector.getInstance().connect();
+        PreparedStatement stm = conn.prepareCall("SELECT * FROM question ORDER BY rand() LIMIT ?");
+        stm.setInt(1, questionId);
+        
+        ResultSet rs = stm.executeQuery();
+
+        List<Choice> choices = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String content = rs.getString("content");
+            boolean correct = rs.getBoolean("is_correct");
+            
+
+            Question q = new Question.Builder(id, content).build();
+            questions.add(q);
+        }
+
+        return questions;
+    }
+    
+    public boolean deleteQuestion(int questionId) throws SQLException{
+        Connection conn = JdbcConnector.getInstance().connect();
+        
+        PreparedStatement stm =conn.prepareCall("DELETE FROM question WHERE id =?");
+        stm.setInt(1, questionId);
+        
+        return stm.executeUpdate() >0;
     }
 }
