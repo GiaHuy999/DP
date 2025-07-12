@@ -33,3 +33,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-pref-width: 300;
     -fx-padding: 8;
 }
+
+.Correct {
+    -fx-fill: green;
+}
+
+.Wrong {
+    -fx-fill: darkred;
+}
