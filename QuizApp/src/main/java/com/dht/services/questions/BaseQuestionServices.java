@@ -6,12 +6,19 @@ package com.dht.services.questions;
 
 import com.dht.pojo.Choice;
 import com.dht.pojo.Question;
+<<<<<<< HEAD
 import com.dht.services.BaseServices;
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import com.dht.utils.JdbcConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
+=======
+import java.sql.Statement;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +26,7 @@ import java.util.List;
  *
  * @author admin
  */
+<<<<<<< HEAD
 public abstract class BaseQuestionServices extends BaseServices<Question> {
 
     public abstract String getSQL(List<Object> params);
@@ -36,6 +44,23 @@ public abstract class BaseQuestionServices extends BaseServices<Question> {
 
     @Override
     public List<Question> getResults(ResultSet rs) throws SQLException {
+=======
+public abstract class BaseQuestionServices{
+    public abstract  String getSQL(List<Object> params);
+       
+    public List<Question> list() throws SQLException{
+        Connection conn = JdbcConnector.getInstance().connect();
+        
+        List<Object> params =new ArrayList<>();
+        PreparedStatement stm = conn.prepareCall(this.getSQL(params));
+        
+        for(int i=0;i<params.size();i++){
+            stm.setObject(i+1, params.get(i));
+        }
+
+        ResultSet rs = stm.executeQuery();
+
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         List<Question> questions = new ArrayList<>();
         while (rs.next()) {
             int id = rs.getInt("id");
@@ -47,6 +72,7 @@ public abstract class BaseQuestionServices extends BaseServices<Question> {
 
         return questions;
     }
+<<<<<<< HEAD
 
     public List<Choice> getChoicesByQuestionId(int questionId) throws SQLException {
         Connection conn = JdbcConnector.getInstance().connect();
@@ -54,6 +80,14 @@ public abstract class BaseQuestionServices extends BaseServices<Question> {
         PreparedStatement stm = conn.prepareCall("SELECT * FROM choice WHERE question_id=?");
         stm.setInt(1, questionId);
 
+=======
+    public List<Choice> getChoicesByQuestionId(int questionId) throws SQLException {
+        Connection conn = JdbcConnector.getInstance().connect();
+        
+        PreparedStatement stm = conn.prepareCall("SELECT * FROM choice WHERE question_id=?");
+        stm.setInt(1, questionId);
+        
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         ResultSet rs = stm.executeQuery();
 
         List<Choice> choices = new ArrayList<>();
@@ -67,4 +101,8 @@ public abstract class BaseQuestionServices extends BaseServices<Question> {
 
         return choices;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 }

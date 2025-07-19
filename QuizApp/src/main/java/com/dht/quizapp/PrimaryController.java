@@ -34,7 +34,11 @@ public class PrimaryController implements Initializable {
     }
     
     public void handleExam(ActionEvent event) {
+<<<<<<< HEAD
         MyAlert.getInstance().showMsg("exam.fxml");
+=======
+        MyAlert.getInstance().showMsg("Comming soon...");
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     }
     
     public void handleRegister(ActionEvent event) {

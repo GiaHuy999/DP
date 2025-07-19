@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author admin
  */
+<<<<<<< HEAD
 public class KeywordQuestionDecorator extends QuestionDecorator {
     private String kw;
 
@@ -26,4 +27,28 @@ public class KeywordQuestionDecorator extends QuestionDecorator {
         return sql;
     }
     
+=======
+public class KeywordQuestionDecorator extends QuestionDecorator{
+    private String kw;
+    
+    public KeywordQuestionDecorator(BaseQuestionServices decorator) {
+        super(decorator);
+    }
+
+    public KeywordQuestionDecorator(BaseQuestionServices decorator,String kw) {
+        super(decorator);
+        this.kw = kw;
+        
+    }
+    
+ 
+    @Override
+    public String getSQL(List<Object> params) {
+        String sql= this.decorator.getSQL(params) + " AND content like concat('%', ?, '%')";
+        
+        params.add(this.kw);
+        return sql;
+    }
+
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 }

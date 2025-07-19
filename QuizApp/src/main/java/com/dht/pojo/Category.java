@@ -12,15 +12,24 @@ package com.dht.pojo;
 public class Category {
     private int id;
     private String name;
+<<<<<<< HEAD
     
     public Category(int id) {
         this.id = id;
     }
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 
     public Category(int id, String name) {
         this.id = id;
         this.name = name;
     }
+<<<<<<< HEAD
+=======
+    public Category(int id) {
+        this.id = id;
+    }
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 
     @Override
     public String toString() {

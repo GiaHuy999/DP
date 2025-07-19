@@ -5,6 +5,7 @@
 package com.dht.quizapp;
 
 import com.dht.pojo.Category;
+<<<<<<< HEAD
 import com.dht.pojo.Level;
 import com.dht.pojo.Question;
 import com.dht.services.FlyweightFactory;
@@ -14,15 +15,30 @@ import com.dht.services.questions.LevelQuestionDecorator;
 import com.dht.services.questions.LimitQuestionDecorator;
 import com.dht.utils.Configs;
 import com.dht.utils.MyAlert;
+=======
+import com.dht.pojo.Question;
+import com.dht.services.questions.BaseQuestionServices;
+import com.dht.services.questions.LevelQuestionDecorator;
+import com.dht.services.questions.LimitQuestionDecorator;
+import com.dht.services.questions.QuestionServices;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
+=======
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 import javafx.scene.control.Alert;
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -41,11 +57,16 @@ public class PracticeController implements Initializable {
     @FXML private  TextField txtNum;
     @FXML private VBox vboxChoices;
     @FXML private ComboBox<Category> cbSearchCates;
+<<<<<<< HEAD
     @FXML private ComboBox<Level> cbSearchLevels;
+=======
+    @FXML private ComboBox<com.dht.pojo.Level> cbSearchLevels;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     
     private List<Question> questions;
     private int currentQuestion = 0;
     
+<<<<<<< HEAD
 
     /**
      * Initializes the controller class.
@@ -87,6 +108,34 @@ public class PracticeController implements Initializable {
         }
     }
     
+=======
+    private static final QuestionServices questionServices = new QuestionServices();
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            
+            this.cbSearchCates.setItems(FXCollections.observableList(com.dht.utils.Configs.cateServices.getCates()));
+            this.cbSearchLevels.setItems(FXCollections.observableList(com.dht.utils.Configs.levelServices.getLevels()));
+
+        } catch (SQLException ex) {
+        }
+    }   
+
+    public void handleStart(ActionEvent event) {
+        try {
+            BaseQuestionServices s = new LimitQuestionDecorator(com.dht.utils.Configs.questionServices, Integer.parseInt(this.txtNum.getText()));
+            this.questions = s.list();
+            this.loadQuestion();
+        } catch (SQLException ex) {
+            Logger.getLogger(PracticeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     public void handleNext(ActionEvent event) {
         if (this.currentQuestion < this.questions.size() - 1) {
             this.currentQuestion++;
@@ -109,6 +158,10 @@ public class PracticeController implements Initializable {
                     this.txtResult.setText("Tiếc thiệt! Bạn đã trả lời sai!");
                     this.txtResult.getStyleClass().add("Wrong");
                 }
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
                 
                 break;
             }

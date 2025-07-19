@@ -6,10 +6,17 @@ package com.dht.quizapp;
 
 import com.dht.pojo.Category;
 import com.dht.pojo.Choice;
+<<<<<<< HEAD
 import com.dht.pojo.Level;
 import com.dht.pojo.Question;
 import com.dht.services.CategoryServices;
 import com.dht.services.FlyweightFactory;
+=======
+
+import com.dht.pojo.Level;
+import com.dht.pojo.Question;
+import com.dht.services.CategoryServices;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import com.dht.services.LevelServices;
 import com.dht.services.questions.BaseQuestionServices;
 import com.dht.services.questions.CategoryQuestionDecorator;
@@ -17,7 +24,10 @@ import com.dht.services.questions.KeywordQuestionDecorator;
 import com.dht.services.questions.LevelQuestionDecorator;
 import com.dht.services.questions.QuestionServices;
 import com.dht.services.questions.UpdateQuestionServices;
+<<<<<<< HEAD
 import com.dht.utils.Configs;
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import com.dht.utils.JdbcConnector;
 import com.dht.utils.MyAlert;
 import java.net.URL;
@@ -57,9 +67,15 @@ import javafx.scene.layout.VBox;
  */
 public class QuestionsController implements Initializable {
     @FXML private ComboBox<Category> cbCates;
+<<<<<<< HEAD
     @FXML private ComboBox<Level> cbLevels;
     @FXML private ComboBox<Category> cbSearchCates;
     @FXML private ComboBox<Level> cbSearchLevels;
+=======
+    @FXML private ComboBox<Category> cbSearchCates;
+    @FXML private ComboBox<Level> cbSearchLevels;
+    @FXML private ComboBox<Level> cbLevels;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     @FXML private TableView<Question> tbQuestions;
     @FXML private TextArea txtContent;
     @FXML private TextField txtSearch;
@@ -76,6 +92,7 @@ public class QuestionsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+<<<<<<< HEAD
             this.cbCates.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.cateServices, "categories")));
             this.cbSearchCates.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.cateServices, "categories")));
             this.cbLevels.setItems(FXCollections.observableList(FlyweightFactory.getData(Configs.levelServices, "levels")));
@@ -83,18 +100,33 @@ public class QuestionsController implements Initializable {
 
             this.loadColumns();
             this.loadQuestions(Configs.questionServices.list());
+=======
+            this.cbCates.setItems(FXCollections.observableList(com.dht.utils.Configs.cateServices.getCates()));
+            this.cbLevels.setItems(FXCollections.observableList(com.dht.utils.Configs.levelServices.getLevels()));
+            this.cbSearchCates.setItems(FXCollections.observableList(com.dht.utils.Configs.cateServices.getCates()));
+            this.cbSearchLevels.setItems(FXCollections.observableList(com.dht.utils.Configs.levelServices.getLevels()));
+
+            
+            this.loadColumns();
+            this.loadQuestions(com.dht.utils.Configs.questionServices.list());
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         } catch (SQLException ex) {
         }
         
         this.txtSearch.textProperty().addListener((e) -> {
             try {
+<<<<<<< HEAD
                 BaseQuestionServices s = new KeywordQuestionDecorator(Configs.questionServices, this.txtSearch.getText());
+=======
+                BaseQuestionServices s = new KeywordQuestionDecorator(com.dht.utils.Configs.questionServices,this.txtSearch.getText());
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
                 this.loadQuestions(s.list());
             } catch (SQLException ex) {
                 Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
         });
         
+<<<<<<< HEAD
         this.cbSearchCates.getSelectionModel().selectedItemProperty().addListener(e -> {
          try {
                 BaseQuestionServices s = new CategoryQuestionDecorator(Configs.questionServices, this.cbSearchCates.getSelectionModel().getSelectedItem());
@@ -111,6 +143,25 @@ public class QuestionsController implements Initializable {
             } catch (SQLException ex) {
                 Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
+=======
+        
+        this.cbSearchCates.getSelectionModel().selectedItemProperty().addListener(e->{
+            try {
+                BaseQuestionServices s = new CategoryQuestionDecorator(com.dht.utils.Configs.questionServices, this.cbSearchCates.getSelectionModel().getSelectedItem());
+                this.loadQuestions(s.list());
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } 
+        });
+        
+         this.cbSearchLevels.getSelectionModel().selectedItemProperty().addListener(e->{
+            try {
+                BaseQuestionServices s = new LevelQuestionDecorator(com.dht.utils.Configs.questionServices, this.cbSearchLevels.getSelectionModel().getSelectedItem());
+                this.loadQuestions(s.list());
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestionsController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } 
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         });
     }   
     
@@ -142,7 +193,11 @@ public class QuestionsController implements Initializable {
                 b.addChoice(choice);
             }
             
+<<<<<<< HEAD
             Configs.uQServices.addQuestion(b.build());
+=======
+            com.dht.utils.Configs.UQuestionServices.addQuestion(b.build());
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
             
             MyAlert.getInstance().showMsg("Thêm câu hỏi thành công!");
         } catch (SQLException ex) {
@@ -176,7 +231,11 @@ public class QuestionsController implements Initializable {
                 if (t.isPresent() && t.get().equals(ButtonType.OK)) {
                     Question q = (Question)cell.getTableRow().getItem();
                     try {
+<<<<<<< HEAD
                         if (Configs.uQServices.deleteQuestion(q.getId()) == true) {
+=======
+                        if (com.dht.utils.Configs.UQuestionServices.deleteQuestion(q.getId()) == true) {
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
                             MyAlert.getInstance().showMsg("Xóa thành công");
                             this.tbQuestions.getItems().remove(q);
                         }

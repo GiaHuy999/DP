@@ -4,6 +4,10 @@
  */
 package com.dht.utils.theme;
 
+<<<<<<< HEAD
+=======
+import com.dht.quizapp.App;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import javafx.scene.Scene;
 
 /**
@@ -11,7 +15,11 @@ import javafx.scene.Scene;
  * @author admin
  */
 public class ThemeManager {
+<<<<<<< HEAD
     private static ThemeFactory themeFactory = new DefaultThemeFactory();
+=======
+    private static ThemeFactory themeFactory = new DarkThemeFactory();
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 
     /**
      * @param aThemeFactory the themeFactory to set

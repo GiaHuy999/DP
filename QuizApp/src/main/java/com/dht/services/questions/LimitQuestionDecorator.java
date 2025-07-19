@@ -8,10 +8,15 @@ import com.dht.pojo.Question;
 import java.sql.SQLException;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 /**
  *
  * @author admin
  */
+<<<<<<< HEAD
 public class LimitQuestionDecorator extends QuestionDecorator {
     private int num;
 
@@ -19,6 +24,15 @@ public class LimitQuestionDecorator extends QuestionDecorator {
         super(decorator);
         
         this.num = num;
+=======
+public class LimitQuestionDecorator extends QuestionDecorator{
+
+    private int num;
+
+    public LimitQuestionDecorator(BaseQuestionServices decorator, int n) {
+        super(decorator);
+        this.num = n;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     }
 
     @Override
@@ -28,6 +42,7 @@ public class LimitQuestionDecorator extends QuestionDecorator {
         return sql;
     }
 
+<<<<<<< HEAD
     @Override
     public List<Question> list() throws SQLException {
         List<Question> questions = super.list(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
@@ -36,6 +51,16 @@ public class LimitQuestionDecorator extends QuestionDecorator {
             q.setChoices(this.getChoicesByQuestionId(q.getId()));
         }
         
+=======
+
+
+    @Override
+    public List<Question> list() throws SQLException {
+        List<Question> questions = super.list();
+        for (var q : questions) {
+            q.setChoices(this.getChoicesByQuestionId(q.getId()));
+        }
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         return questions;
     }
     

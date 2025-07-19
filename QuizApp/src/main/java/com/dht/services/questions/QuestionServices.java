@@ -4,15 +4,99 @@
  */
 package com.dht.services.questions;
 
+<<<<<<< HEAD
+=======
+import com.dht.pojo.Choice;
+import com.dht.pojo.Question;
+import com.dht.utils.JdbcConnector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 import java.util.List;
 
 /**
  *
  * @author admin
  */
+<<<<<<< HEAD
 public class QuestionServices extends BaseQuestionServices {
+=======
+public class QuestionServices extends BaseQuestionServices{
+
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     @Override
     public String getSQL(List<Object> params) {
         return "SELECT * FROM question WHERE 1=1";
     }
+<<<<<<< HEAD
+=======
+    
+//    public List<Question> getQuestions() throws SQLException {
+//        Connection conn = JdbcConnector.getInstance().connect();
+//        Statement stm = conn.createStatement();
+//        ResultSet rs = stm.executeQuery("SELECT * FROM question");
+//
+//        List<Question> questions = new ArrayList<>();
+//        while (rs.next()) {
+//            int id = rs.getInt("id");
+//            String content = rs.getString("content");
+//
+//            Question q = new Question.Builder(id, content).build();
+//            questions.add(q);
+//        }
+//
+//        return questions;
+//    }
+    
+    
+//    public List<Question> getQuestions(String kw) throws SQLException {
+//        Connection conn = JdbcConnector.getInstance().connect();
+//        
+//        PreparedStatement stm = conn.prepareCall("SELECT * FROM question WHERE content like concat('%', ?, '%')");
+//        stm.setString(1, kw);
+//        
+//        ResultSet rs = stm.executeQuery();
+//
+//        List<Question> questions = new ArrayList<>();
+//        while (rs.next()) {
+//            int id = rs.getInt("id");
+//            String content = rs.getString("content");
+//
+//            Question q = new Question.Builder(id, content).build();
+//            questions.add(q);
+//        }
+//
+//        return questions;
+////    }
+//    
+//    public List<Question> getQuestions(int num) throws SQLException {
+//        Connection conn = JdbcConnector.getInstance().connect();
+//        
+//        PreparedStatement stm = conn.prepareCall("SELECT * FROM question ORDER BY rand() LIMIT ?");
+//        stm.setInt(1, num);
+//        
+//        ResultSet rs = stm.executeQuery();
+//
+//        List<Question> questions = new ArrayList<>();
+//        while (rs.next()) {
+//            int id = rs.getInt("id");
+//            String content = rs.getString("content");
+//
+//            Question q = new Question.Builder(id, content)
+//                                    .addAllChoices(this.getChoicesByQuestionId(id)).build();
+//            
+//            questions.add(q);
+//        }
+//
+//        return questions;
+//    }
+//    
+    
+    
+    
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 }

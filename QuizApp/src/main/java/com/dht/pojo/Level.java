@@ -12,16 +12,26 @@ public class Level {
     private int id;
     private String name;
     private String note;
+<<<<<<< HEAD
     
     public Level(int id) {
         this.id = id;
     }
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 
     public Level(int id, String name, String note) {
         this.id = id;
         this.name = name;
         this.note = note;
     }
+<<<<<<< HEAD
+=======
+    public Level(int id) {
+        this.id = id;
+        
+    }
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
 
     @Override
     public String toString() {

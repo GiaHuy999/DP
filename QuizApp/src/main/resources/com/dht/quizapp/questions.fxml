@@ -45,8 +45,13 @@
       <HBox styleClass="Main">
          <children>
             <TextField fx:id="txtSearch" promptText="Tìm kiếm câu hỏi..." style="-fx-padding: 8;" />
+<<<<<<< HEAD
             <ComboBox fx:id="cbSearchCates" prefWidth="150.0" styleClass="Input" />
             <ComboBox fx:id="cbSearchLevels" prefWidth="150.0" styleClass="Input" />
+=======
+            <ComboBox fx:id="cbSearchCates" prefWidth="150.0" />
+            <ComboBox fx:id="cbSearchLevels" prefWidth="150.0" />
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
          </children>
       </HBox>
       <TableView fx:id="tbQuestions" prefHeight="225.0" prefWidth="509.0" />

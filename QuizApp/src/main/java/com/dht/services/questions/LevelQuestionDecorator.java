@@ -12,6 +12,7 @@ import java.util.List;
  * @author admin
  */
 public class LevelQuestionDecorator extends QuestionDecorator {
+<<<<<<< HEAD
     private Level level;
 
     public LevelQuestionDecorator(BaseQuestionServices decorator, Level lvl) {
@@ -22,13 +23,29 @@ public class LevelQuestionDecorator extends QuestionDecorator {
     public LevelQuestionDecorator(BaseQuestionServices decorator, int lvlId) {
         super(decorator);
         this.level = new Level(lvlId);
+=======
+
+    private Level level;
+
+    public LevelQuestionDecorator(BaseQuestionServices decorator, Level v) {
+        super(decorator);
+        this.level = v;
+    }
+
+    public LevelQuestionDecorator(BaseQuestionServices decorator, int id) {
+        super(decorator);
+        this.level = new Level(id);
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     }
 
     @Override
     public String getSQL(List<Object> params) {
         String sql = this.decorator.getSQL(params) + " AND level_id=?";
         params.add(this.level.getId());
+<<<<<<< HEAD
         
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
         return sql;
     }
     

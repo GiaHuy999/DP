@@ -31,12 +31,15 @@ public class Question {
         this.choices = builder.choices;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return this.content;
     }
 
     
+=======
+>>>>>>> c15c49f61d9e1cd32054017a3b307ef0efbb7606
     public static class Builder {
         private int id;
         private String content;
